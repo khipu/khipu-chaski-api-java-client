@@ -4,18 +4,18 @@
   <artifactId>khipu-chaski-api-client</artifactId>
   <packaging>jar</packaging>
   <name>khipu-chaski-api-client</name>
-  <version>1.0.0-SNAPSHOT</version>
-  <description></description>
-  <url></url>
+  <version>1.0.3-SNAPSHOT</version>
+  <description>A java wrapper for the khipu chaski API</description>
+  <url>https://github.com/khipu/khipu-chaski-api-java-client</url>
   <parent>
-    <groupId></groupId>
-    <artifactId></artifactId>
-    <version></version>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>9</version>
   </parent>
   <scm>
-    <connection></connection>
-    <developerConnection></developerConnection>
-    <url></url>
+    <connection>scm:git:git@github.com:khipu/khipu-chaski-api-java-client.git</connection>
+    <developerConnection>scm:git:git@github.com:khipu/khipu-chaski-api-java-client.git</developerConnection>
+    <url>https://github.com/khipu/khipu-chaski-api-java-client</url>
   </scm>
   <prerequisites>
     <maven>2.2.0</maven>
