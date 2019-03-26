@@ -6,13 +6,14 @@ import com.khipu.Configuration;
 import com.khipu.Pair;
 import com.khipu.TypeRef;
 
-import com.khipu.chaski.api.model.SuccessResponse;
 import com.khipu.chaski.api.model.ServiceError;
+import com.khipu.chaski.api.model.SuccessResponse;
+import com.khipu.chaski.api.model.Message;
 import com.khipu.chaski.api.model.AuthorizationError;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-12T13:01:26.004Z")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen")
 public class PushNotificationsApi {
   private ApiClient apiClient;
 
@@ -36,28 +37,89 @@ public class PushNotificationsApi {
   /**
    * Enviar un nuevo mensaje
    * Encolar un nuevo mensaje para dispositivos moviles.
-   * @param recipientIdSet Receptores del mensaje
-   * @param subject Asunto del mensaje
-   * @param body cuerpo del mensaje
-   * @param options Mapa de parámetros opcionales
+   * @param message Mensaje a enviar
+   * @param options Mapa de par��metros opcionales
    * @return SuccessResponse
    */
-  public SuccessResponse msgPost (String recipientIdSet, String subject, String body,  Map<String, Object> options) throws ApiException {
+  public SuccessResponse sendMessage (Message message,  Map<String, Object> options) throws ApiException {
+    Object postBody = message;
+    
+    // verify the required parameter 'message' is set
+    if (message == null) {
+      throw new ApiException(400, "Missing the required parameter 'message' when calling sendMessage");
+    }
+    
+    // create path and map variables
+    String path = "/message".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, Object> formParams = new HashMap<String, Object>();
+
+    
+
+    if(options != null) {
+        
+    }
+
+
+    
+
+    if(options != null) {
+        
+    }
+
+
+    
+
+    if(options != null) {
+      
+    }
+
+    final String[] accepts = {
+      "application/json"
+    };
+    final String accept = apiClient.selectHeaderAccept(accepts);
+
+    final String[] contentTypes = {
+      "application/json"
+    };
+    final String contentType = apiClient.selectHeaderContentType(contentTypes);
+
+    String[] authNames = new String[] { "khipu" };
+
+    
+    TypeRef returnType = new TypeRef<SuccessResponse>() {};
+    return apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
+    
+  }
+  
+  /**
+   * Enviar un nuevo mensaje
+   * Encolar un nuevo mensaje para dispositivos moviles.
+   * @param recipientIdSet Receptores del mensaje. Los ids de receptor van separados por coma.
+   * @param subject Asunto del mensaje
+   * @param body cuerpo del mensaje
+   * @param options Mapa de par��metros opcionales
+   * @return SuccessResponse
+   */
+  public SuccessResponse sendMsg (String recipientIdSet, String subject, String body,  Map<String, Object> options) throws ApiException {
     Object postBody = null;
     
     // verify the required parameter 'recipientIdSet' is set
     if (recipientIdSet == null) {
-      throw new ApiException(400, "Missing the required parameter 'recipientIdSet' when calling msgPost");
+      throw new ApiException(400, "Missing the required parameter 'recipientIdSet' when calling sendMsg");
     }
     
     // verify the required parameter 'subject' is set
     if (subject == null) {
-      throw new ApiException(400, "Missing the required parameter 'subject' when calling msgPost");
+      throw new ApiException(400, "Missing the required parameter 'subject' when calling sendMsg");
     }
     
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling msgPost");
+      throw new ApiException(400, "Missing the required parameter 'body' when calling sendMsg");
     }
     
     // create path and map variables
@@ -115,13 +177,24 @@ public class PushNotificationsApi {
   /**
   * Enviar un nuevo mensaje
   * Encolar un nuevo mensaje para dispositivos moviles.
-  * @param recipientIdSet Receptores del mensaje
+  * @param message Mensaje a enviar
+  * @return SuccessResponse
+  */
+  public SuccessResponse sendMessage (Message message) throws ApiException {
+    return sendMessage(message, null);
+    
+  }
+  
+  /**
+  * Enviar un nuevo mensaje
+  * Encolar un nuevo mensaje para dispositivos moviles.
+  * @param recipientIdSet Receptores del mensaje. Los ids de receptor van separados por coma.
   * @param subject Asunto del mensaje
   * @param body cuerpo del mensaje
   * @return SuccessResponse
   */
-  public SuccessResponse msgPost (String recipientIdSet, String subject, String body) throws ApiException {
-    return msgPost(recipientIdSet, subject, body, null);
+  public SuccessResponse sendMsg (String recipientIdSet, String subject, String body) throws ApiException {
+    return sendMsg(recipientIdSet, subject, body, null);
     
   }
   
