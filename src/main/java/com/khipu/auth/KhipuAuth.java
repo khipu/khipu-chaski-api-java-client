@@ -27,7 +27,7 @@ public class KhipuAuth implements Authentication {
 
   @Override
   public void applyToParams(ApiClient apiClient, String basePath, String path, String method, List<Pair> queryParams, Map<String, String> headerParams, Map<String, Object> formParams, Object body) {
-    String toSign = method + "&" + percentEncode(basePath + path);
+    String toSign = method + "&" + percentEncode(basePath) + path;
 
     Map<String, String> params = new HashMap<String, String>();
     for (Pair pair : queryParams) {
