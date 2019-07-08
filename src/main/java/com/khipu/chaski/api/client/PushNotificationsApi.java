@@ -95,82 +95,6 @@ public class PushNotificationsApi {
     
   }
   
-  /**
-   * Enviar un nuevo mensaje
-   * Encolar un nuevo mensaje para dispositivos moviles.
-   * @param recipientIdSet Receptores del mensaje. Los ids de receptor van separados por coma.
-   * @param subject Asunto del mensaje
-   * @param body cuerpo del mensaje
-   * @param options Mapa de par��metros opcionales
-   * @return SuccessResponse
-   */
-  public SuccessResponse sendMsg (String recipientIdSet, String subject, String body,  Map<String, Object> options) throws ApiException {
-    Object postBody = null;
-    
-    // verify the required parameter 'recipientIdSet' is set
-    if (recipientIdSet == null) {
-      throw new ApiException(400, "Missing the required parameter 'recipientIdSet' when calling sendMsg");
-    }
-    
-    // verify the required parameter 'subject' is set
-    if (subject == null) {
-      throw new ApiException(400, "Missing the required parameter 'subject' when calling sendMsg");
-    }
-    
-    // verify the required parameter 'body' is set
-    if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling sendMsg");
-    }
-    
-    // create path and map variables
-    String path = "/msg".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> queryParams = new ArrayList<Pair>();
-    Map<String, String> headerParams = new HashMap<String, String>();
-    Map<String, Object> formParams = new HashMap<String, Object>();
-
-    
-
-    if(options != null) {
-        
-    }
-
-
-    
-
-    if(options != null) {
-        
-    }
-
-
-    formParams.put("recipientIdSet", recipientIdSet);
-    formParams.put("subject", subject);
-    formParams.put("body", body);
-    
-
-    if(options != null) {
-      
-    }
-
-    final String[] accepts = {
-      "application/json"
-    };
-    final String accept = apiClient.selectHeaderAccept(accepts);
-
-    final String[] contentTypes = {
-      "application/x-www-form-urlencoded"
-    };
-    final String contentType = apiClient.selectHeaderContentType(contentTypes);
-
-    String[] authNames = new String[] { "khipu" };
-
-    
-    TypeRef returnType = new TypeRef<SuccessResponse>() {};
-    return apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
-    
-  }
-  
 
 
   
@@ -182,19 +106,6 @@ public class PushNotificationsApi {
   */
   public SuccessResponse sendMessage (Message message) throws ApiException {
     return sendMessage(message, null);
-    
-  }
-  
-  /**
-  * Enviar un nuevo mensaje
-  * Encolar un nuevo mensaje para dispositivos moviles.
-  * @param recipientIdSet Receptores del mensaje. Los ids de receptor van separados por coma.
-  * @param subject Asunto del mensaje
-  * @param body cuerpo del mensaje
-  * @return SuccessResponse
-  */
-  public SuccessResponse sendMsg (String recipientIdSet, String subject, String body) throws ApiException {
-    return sendMsg(recipientIdSet, subject, body, null);
     
   }
   
