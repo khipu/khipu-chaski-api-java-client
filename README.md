@@ -10,6 +10,7 @@ package test;
 
 import com.khipu.chaski.api.client.PushNotificationsApi;
 import com.khipu.chaski.api.model.SuccessResponse;
+improt com.khipu.chaski.api.model.Message;
 import com.khipu.ApiClient;
 import com.khipu.ApiException;
 
@@ -20,7 +21,11 @@ public class Test {
         client.setKhipuCredentials(1234L, "abcd123");
         PushNotificationsApi notificationsApi = new PushNotificationsApi();
         notificationsApi.setApiClient(client);
-        SuccessResponse respose = notificationsApi.msgPost("recipient","subject","Hello!!!");
+        Message message = new Message();
+        message.getRecipientIdSet().add("recipient");
+        message.setSubject("subject");
+        message.setBody("Hello!!!");
+        SuccessResponse respose = notificationsApi.sendMessage(message);
         System.out.println(respose.getMessage());
     }
 }
