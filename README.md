@@ -10,7 +10,7 @@ package test;
 
 import com.khipu.chaski.api.client.PushNotificationsApi;
 import com.khipu.chaski.api.model.SuccessResponse;
-improt com.khipu.chaski.api.model.Message;
+import com.khipu.chaski.api.model.Message;
 import com.khipu.ApiClient;
 import com.khipu.ApiException;
 
