@@ -96,6 +96,67 @@ public class DeviceRegistryApi {
   }
   
   /**
+   * Registro de dispositivo eliminando alias anteriores
+   * Registra un dispositivo identificado por su tokenId, elimina alias anteriores
+   * @param device Dispositivo a registrar
+   * @param options Mapa de par��metros opcionales
+   * @return SuccessResponse
+   */
+  public SuccessResponse addUniqueAliasDevice (Device device,  Map<String, Object> options) throws ApiException {
+    Object postBody = device;
+    
+    // verify the required parameter 'device' is set
+    if (device == null) {
+      throw new ApiException(400, "Missing the required parameter 'device' when calling addUniqueAliasDevice");
+    }
+    
+    // create path and map variables
+    String path = "/devices/uniqueAlias".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, Object> formParams = new HashMap<String, Object>();
+
+    
+
+    if(options != null) {
+        
+    }
+
+
+    
+
+    if(options != null) {
+        
+    }
+
+
+    
+
+    if(options != null) {
+      
+    }
+
+    final String[] accepts = {
+      "application/json"
+    };
+    final String accept = apiClient.selectHeaderAccept(accepts);
+
+    final String[] contentTypes = {
+      "application/json"
+    };
+    final String contentType = apiClient.selectHeaderContentType(contentTypes);
+
+    String[] authNames = new String[] { "khipu" };
+
+    
+    TypeRef returnType = new TypeRef<SuccessResponse>() {};
+    return apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
+    
+  }
+  
+  /**
    * Obtiene dispositivo
    * Obtiene la informacion de un dispositivo especifico
    * @param tokenId Token que identifica al dispositivo. Tiene la forma &lt;platform&gt;:&lt;registryId&gt;, donde platform puede tomar los valores \&quot;and\&quot; o \&quot;ios\&quot;.
@@ -306,6 +367,17 @@ public class DeviceRegistryApi {
   */
   public SuccessResponse addDevice (Device device) throws ApiException {
     return addDevice(device, null);
+    
+  }
+  
+  /**
+  * Registro de dispositivo eliminando alias anteriores
+  * Registra un dispositivo identificado por su tokenId, elimina alias anteriores
+  * @param device Dispositivo a registrar
+  * @return SuccessResponse
+  */
+  public SuccessResponse addUniqueAliasDevice (Device device) throws ApiException {
+    return addUniqueAliasDevice(device, null);
     
   }
   
